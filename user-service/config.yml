@@ -1,0 +1,14 @@
+application:
+  secret: "4a1a170137d3f75876313a558f29fe9b"
+  port: 8000 # port server
+
+userservice:
+  db:
+    lists: "user=postgres password=secrect host=localhost port=5432 dbname=user sslmode=disable TimeZone=Asia/Jakarta"
+    name: "user"
+    migrations: 
+      connstrings: "postgres://postgres:secrect@localhost:5432/user?sslmode=disable"
+      folder: "file://migrations"
+
+cors:
+  whitelist: "*"

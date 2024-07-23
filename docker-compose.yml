@@ -1,0 +1,198 @@
+version: '3'
+
+services:
+  warehouse-service:
+    container_name: warehouse-service
+    build: warehouse-service/.
+    volumes:
+      - api_volume:/usr/src/app/
+    restart: on-failure
+    environment:
+      WAREHOUSESERVICE_DB_LISTS: "user=postgres password=secrect host=postgres_warehouse port=5433 dbname=warehouse sslmode=disable TimeZone=Asia/Jakarta"
+      WAREHOUSESERVICE_DB_NAME: "warehouse"
+      WAREHOUSESERVICE_DB_MIGRATIONS_CONNSTRINGS: "postgres://postgres:secrect@postgres_warehouse:5433/warehouse?sslmode=disable"
+      WAREHOUSESERVICE_DB_MIGRATIONS_FOLDER: "file://migrations"
+      CLIENT_USER_HOST: "http://user-service:8000"
+      CLIENT_USER_CHECKTOKEN: "/validate-token"
+    ports:
+      - 8001:8001
+    depends_on:
+      - postgres_warehouse
+    networks:
+      - fullstack
+  postgres_warehouse:
+    container_name: postgres_warehouse
+    image: postgres:latest
+    environment:
+      - POSTGRES_PASSWORD=secrect
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=warehouse
+      - DATABASE_HOST=127.0.0.1
+    expose:
+      - "5433" # Publishes 5433 to other containers but NOT to host machine
+    ports:
+      - 5433:5432
+    command: -p 5433
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    restart: always
+    networks:
+      - fullstack
+  user-service:
+    container_name: user-service
+    build: user-service/.
+    volumes:
+      - api_volume:/usr/src/app/
+    restart: on-failure
+    environment:
+      USERSERVICE_DB_LISTS: "user=postgres password=secrect host=postgres_user port=5432 dbname=user sslmode=disable TimeZone=Asia/Jakarta"
+      USERSERVICE_DB_NAME: "user"
+      USERSERVICE_DB_MIGRATIONS_CONNSTRINGS: "postgres://postgres:secrect@postgres_user:5432/user?sslmode=disable"
+      USERSERVICE_DB_MIGRATIONS_FOLDER: "file://migrations"
+    ports:
+      - 8000:8000
+    depends_on:
+      - postgres_user
+    networks:
+      - fullstack
+  postgres_user:
+    container_name: postgres_user
+    image: postgres:latest
+    environment:
+      - POSTGRES_PASSWORD=secrect
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=user
+      - DATABASE_HOST=127.0.0.1
+    expose:
+      - "5432" # Publishes 5432 to other containers but NOT to host machine
+    ports:
+      - 5432:5432
+    command: -p 5432
+    volumes:
+      - pgdata:/var/lib/postgresql/data2
+    restart: always
+    networks:
+      - fullstack
+  shop-service:
+    container_name: shop-service
+    build: shop-service/.
+    volumes:
+      - api_volume:/usr/src/app/
+    restart: on-failure
+    environment:
+      SHOPSERVICE_DB_LISTS: "user=postgres password=secrect host=postgres_shop port=5434 dbname=shop sslmode=disable TimeZone=Asia/Jakarta"
+      SHOPSERVICE_DB_NAME: "shop"
+      SHOPSERVICE_DB_MIGRATIONS_CONNSTRINGS: "postgres://postgres:secrect@postgres_shop:5434/shop?sslmode=disable"
+      SHOPSERVICE_DB_MIGRATIONS_FOLDER: "file://migrations"
+      CLIENT_USER_HOST: "http://user-service:8000"
+      CLIENT_USER_CHECKTOKEN: "/validate-token"
+    ports:
+      - 8002:8002
+    depends_on:
+      - postgres_shop
+    networks:
+      - fullstack
+  postgres_shop:
+    container_name: postgres_shop
+    image: postgres:latest
+    environment:
+      - POSTGRES_PASSWORD=secrect
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=shop
+      - DATABASE_HOST=127.0.0.1
+    expose:
+      - "5434" # Publishes 5434 to other containers but NOT to host machine
+    ports:
+      - 5434:5432
+    command: -p 5434
+    volumes:
+      - pgdata:/var/lib/postgresql/data3
+    restart: always
+    networks:
+      - fullstack
+  product-service:
+    container_name: product-service
+    build: product-service/.
+    volumes:
+      - api_volume:/usr/src/app/
+    restart: on-failure
+    environment:
+      PRODUCTSERVICE_DB_LISTS: "user=postgres password=secrect host=postgres_product port=5435 dbname=product sslmode=disable TimeZone=Asia/Jakarta"
+      PRODUCTSERVICE_DB_NAME: "product"
+      PRODUCTSERVICE_DB_MIGRATIONS_CONNSTRINGS: "postgres://postgres:secrect@postgres_product:5435/product?sslmode=disable"
+      PRODUCTSERVICE_DB_MIGRATIONS_FOLDER: "file://migrations"
+      CLIENT_USER_HOST: "http://user-service:8000"
+      CLIENT_USER_CHECKTOKEN: "/validate-token"
+      CLIENT_WAREHOUSE_HOST: "http://warehouse-service:8001"
+      CLIENT_WAREHOUSE_CHECKTOKEN: "/warehouse/stock"
+    ports:
+      - 8004:8004
+    depends_on:
+      - postgres_product
+    networks:
+      - fullstack
+  postgres_product:
+    container_name: postgres_product
+    image: postgres:latest
+    environment:
+      - POSTGRES_PASSWORD=secrect
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=product
+      - DATABASE_HOST=127.0.0.1
+    expose:
+      - "5435" # Publishes 5435 to other containers but NOT to host machine
+    command: -p 5435
+    ports:
+      - 5435:5432
+    volumes:
+      - pgdata:/var/lib/postgresql/data4
+    restart: always
+    networks:
+      - fullstack
+  order-service:
+    container_name: order-service
+    build: order-service/.
+    volumes:
+      - api_volume:/usr/src/app/
+    restart: on-failure
+    environment:
+      ORDERSERVICE_DB_LISTS: "user=postgres password=secrect host=postgres_order port=5436 dbname=order sslmode=disable TimeZone=Asia/Jakarta"
+      ORDERSERVICE_DB_NAME: "order"
+      ORDERSERVICE_DB_MIGRATIONS_CONNSTRINGS: "postgres://postgres:secrect@postgres_order:5436/order?sslmode=disable"
+      ORDERSERVICE_DB_MIGRATIONS_FOLDER: "file://migrations"
+      CLIENT_USER_HOST: "http://user-service:8000"
+      CLIENT_USER_CHECKTOKEN: "/validate-token"
+      CLIENT_WAREHOUSE_HOST: "http://warehouse-service:8001"
+      CLIENT_WAREHOUSE_CHECKTOKEN: "/warehouse/stock"
+    ports:
+      - 8005:8005
+    depends_on:
+      - postgres_order
+    networks:
+      - fullstack
+  postgres_order:
+    container_name: postgres_order
+    image: postgres:latest
+    environment:
+      - POSTGRES_PASSWORD=secrect
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=order
+      - DATABASE_HOST=127.0.0.1
+    expose:
+      - "5436" # Publishes 5436 to other containers but NOT to host machine
+    ports:
+      - 5436:5432
+    command: -p 5436
+    volumes:
+      - pgdata:/var/lib/postgresql/data5
+    restart: always
+    networks:
+      - fullstack
+
+volumes:  
+  api_volume:
+  pgdata:
+
+# Networks to be created to facilitate communication between containers
+networks:
+  fullstack:

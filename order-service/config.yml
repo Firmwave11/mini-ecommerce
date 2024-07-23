@@ -1,0 +1,22 @@
+application:
+  secret: "4a1a170137d3f75876313a558f29fe9b"
+  port: 8006 # port server
+
+orderservice:
+  db:
+    lists: "user=postgres password=secrect host=localhost port=5432 dbname=order sslmode=disable TimeZone=Asia/Jakarta"
+    name: "user"
+    migrations: 
+      connstrings: "postgres://postgres:secrect@localhost:5432/order?sslmode=disable"
+      folder: "file://migrations"
+
+cors:
+  whitelist: "*"
+
+client:
+  user:
+    host: http://localhost:8000
+    checktoken: /validate-token
+  warehouse:
+    host: http://localhost:8001
+    stockproduct: /warehouse/stock

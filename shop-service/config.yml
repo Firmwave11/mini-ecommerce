@@ -1,0 +1,19 @@
+application:
+  secret: "4a1a170137d3f75876313a558f29fe9b"
+  port: 8003 # port server
+
+shopservice:
+  db:
+    lists: "user=postgres password=secrect host=postgres_shop port=5432 dbname=shop sslmode=disable TimeZone=Asia/Jakarta"
+    name: "user"
+    migrations: 
+      connstrings: "postgres://postgres:secrect@postgres_shop:5432/shop?sslmode=disable"
+      folder: "file://migrations"
+
+cors:
+  whitelist: "*"
+
+client:
+  user:
+    host: http://localhost:8000
+    checktoken: /validate-token
