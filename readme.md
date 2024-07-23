@@ -1,4 +1,4 @@
-# Dating API
+# Mini Ecommerce API
 
 Simple REST API 
 
