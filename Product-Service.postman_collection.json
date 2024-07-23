@@ -1,0 +1,182 @@
+{
+	"info": {
+		"_postman_id": "6172ce36-c8c9-4d9b-8cf7-d5d050a28879",
+		"name": "Product-Service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12728962"
+	},
+	"item": [
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "Post Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "fDa2n61zhyAFz7WRgI9Ns2564VGRK0gQEYiWeZsjjTIehPcGuPRIOH7ZiBW69jzVGDUSm6BwZKR+ofwXGzXJNVHaT7QcJyOLuSD9tysqNsEcjxcRdWHgQUYVAl4uIuqjetvmiFpmZzj32PEWWApnkWyvrgG+DX6U2iCKXTWsaIEBMFFZq7atSFOlw0NMF91wcmQL3u2Qy7SpAA93EnWaxuqUsc+BlooQfsQbIPFvZY3hKLwlneIKgeXJgy4JspM74HOXbN7eg2jhl42RW1YKNlNSVw==",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\":0,\n    \"price\": 1,\n    \"Name\": \"prestashop\",\n    \"weight\": \"Jakarta\",\n    \"enabled\": false,\n    \"is_deleted\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8003/shop",
+							"host": [
+								"localhost"
+							],
+							"port": "8003",
+							"path": [
+								"shop"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success Post Product",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\":0,\n    \"price\": 1000,\n    \"Name\": \"Koyo\",\n    \"weight\": 1,\n    \"enabled\": false,\n    \"is_deleted\": false\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8004/product",
+									"host": [
+										"localhost"
+									],
+									"port": "8004",
+									"path": [
+										"product"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 22 Jul 2024 15:55:47 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "74"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": {\n        \"code\": \"000002\",\n        \"message\": \"Success Insert or Update Product\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Products",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "fDa2n61zhyAFz7WRgI9Ns2564VGRK0gQEYiWeZsjjTIehPcGuPRIOH7ZiBW69jzVGDUSm6BwZKR+ofwXGzXJNVHaT7QcJyOLuSD9tysqNsEcjxcRdWHgQUYVAl4uIuqjetvmiFpmZzj32PEWWApnkWyvrgG+DX6U2iCKXTWsaIEBMFFZq7atSFOlw0NMF91wcmQL3u2Qy7SpAA93EnWaxuqUsc+BlooQfsQbIPFvZY3hKLwlneIKgeXJgy4JspM74HOXbN7eg2jhl42RW1YKNlNSVw==",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "localhost:8003/shop",
+							"host": [
+								"localhost"
+							],
+							"port": "8003",
+							"path": [
+								"shop"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success Get Product",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "localhost:8004/product",
+									"host": [
+										"localhost"
+									],
+									"port": "8004",
+									"path": [
+										"product"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 22 Jul 2024 16:25:27 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1055"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": {\n        \"code\": \"000001\",\n        \"message\": \"Success Get Product\"\n    },\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"0\",\n            \"price\": 10000,\n            \"enabled\": false,\n            \"created_at\": \"2024-07-22T22:55:23.060139Z\",\n            \"updated_at\": \"2024-07-22T22:55:23.060139Z\",\n            \"is_deleted\": false,\n            \"warehouse\": [\n                {\n                    \"id\": 4,\n                    \"warehouse_id\": 1,\n                    \"product_id\": 1,\n                    \"quantity\": 45,\n                    \"created_at\": \"2024-07-22T13:19:15.312028Z\",\n                    \"updated_at\": \"2024-07-22T14:25:21.460194Z\",\n                    \"is_deleted\": false\n                },\n                {\n                    \"id\": 5,\n                    \"warehouse_id\": 2,\n                    \"product_id\": 1,\n                    \"quantity\": 0,\n                    \"created_at\": \"2024-07-22T13:20:44.655467Z\",\n                    \"updated_at\": \"2024-07-22T13:47:28.653367Z\",\n                    \"is_deleted\": false\n                }\n            ]\n        },\n        {\n            \"id\": 2,\n            \"name\": \"0\",\n            \"price\": 1000,\n            \"weight\": 1,\n            \"enabled\": false,\n            \"created_at\": \"2024-07-22T22:55:47.128371Z\",\n            \"updated_at\": \"2024-07-22T22:55:47.128371Z\",\n            \"is_deleted\": false,\n            \"warehouse\": [\n                {\n                    \"id\": 7,\n                    \"warehouse_id\": 1,\n                    \"product_id\": 2,\n                    \"quantity\": 4,\n                    \"created_at\": \"2024-07-22T13:21:17.696016Z\",\n                    \"updated_at\": \"2024-07-22T13:21:17.696016Z\",\n                    \"is_deleted\": false\n                },\n                {\n                    \"id\": 6,\n                    \"warehouse_id\": 1,\n                    \"product_id\": 2,\n                    \"quantity\": 5,\n                    \"created_at\": \"2024-07-22T13:21:08.853123Z\",\n                    \"updated_at\": \"2024-07-22T13:21:08.853123Z\",\n                    \"is_deleted\": false\n                }\n            ]\n        }\n    ]\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}

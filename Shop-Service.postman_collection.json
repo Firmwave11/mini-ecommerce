@@ -1,0 +1,187 @@
+{
+	"info": {
+		"_postman_id": "344104c8-d8a4-4570-806b-79d98b63f60f",
+		"name": "Shop-Service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12728962"
+	},
+	"item": [
+		{
+			"name": "Shop",
+			"item": [
+				{
+					"name": "Post Shop",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "fDa2n61zhyAFz7WRgI9Ns2564VGRK0gQEYiWeZsjjTIehPcGuPRIOH7ZiBW69jzVGDUSm6BwZKR+ofwXGzXJNVHaT7QcJyOLuSD9tysqNsEcjxcRdWHgQUYVAl4uIuqjetvmiFpmZzj32PEWWApnkWyvrgG+DX6U2iCKXTWsaIEBMFFZq7atSFOlw0NMF91wcmQL3u2Qy7SpAA93EnWaxuqUsc+BlooQfsQbIPFvZY3hKLwlneIKgeXJgy4JspM74HOXbN7eg2jhl42RW1YKNlNSVw==",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\":0,\n    \"CustomerId\": 1,\n    \"Name\": \"prestashop\",\n    \"Address\": \"Jakarta\",\n    \"Phone\": \"08211312313\",\n    \"is_deleted\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8003/shop",
+							"host": [
+								"localhost"
+							],
+							"port": "8003",
+							"path": [
+								"shop"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success Post Shop",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\":0,\n    \"CustomerId\": 1,\n    \"Name\": \"prestashop\",\n    \"Address\": \"Jakarta\",\n    \"Phone\": \"08211312313\",\n    \"is_deleted\": false\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8003/shop",
+									"host": [
+										"localhost"
+									],
+									"port": "8003",
+									"path": [
+										"shop"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 22 Jul 2024 09:59:02 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "71"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": {\n        \"code\": \"000002\",\n        \"message\": \"Success Insert or Update Shop\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Post Shop Copy",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "fDa2n61zhyAFz7WRgI9Ns2564VGRK0gQEYiWeZsjjTIehPcGuPRIOH7ZiBW69jzVGDUSm6BwZKR+ofwXGzXJNVHaT7QcJyOLuSD9tysqNsEcjxcRdWHgQUYVAl4uIuqjetvmiFpmZzj32PEWWApnkWyvrgG+DX6U2iCKXTWsaIEBMFFZq7atSFOlw0NMF91wcmQL3u2Qy7SpAA93EnWaxuqUsc+BlooQfsQbIPFvZY3hKLwlneIKgeXJgy4JspM74HOXbN7eg2jhl42RW1YKNlNSVw==",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "localhost:8003/shop",
+							"host": [
+								"localhost"
+							],
+							"port": "8003",
+							"path": [
+								"shop"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success Post Shop",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\":0,\n    \"CustomerId\": 1,\n    \"Name\": \"prestashop\",\n    \"Address\": \"Jakarta\",\n    \"Phone\": \"08211312313\",\n    \"is_deleted\": false\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8003/shop",
+									"host": [
+										"localhost"
+									],
+									"port": "8003",
+									"path": [
+										"shop"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 22 Jul 2024 09:59:02 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "71"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": {\n        \"code\": \"000002\",\n        \"message\": \"Success Insert or Update Shop\"\n    }\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}

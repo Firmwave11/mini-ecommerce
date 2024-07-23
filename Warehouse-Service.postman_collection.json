@@ -1,0 +1,678 @@
+{
+	"info": {
+		"_postman_id": "0dc04e6e-ca40-4e3f-8448-a6ae7105d878",
+		"name": "Warehouse-Service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12728962"
+	},
+	"item": [
+		{
+			"name": "Stock",
+			"item": [
+				{
+					"name": "Get All Stock",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "nHFWqzWJM1TrfD+kRGJWPb9WgrozsrMY7+kK8LtV/T9RiCwM21bGxiN1PmxgxDqc0QOskmr7mEU909CRABLlTJry9k0ywlLnBRhNTbnm9y+mqZc8CUyjiejNuJvJvTko0f1GA02z8UMWXseVOLriq0bg+cUbligIy3w9p7Cg4zrzpZbDwZm9p4LLp8V0rPd4b4Nh560KMrQEZL1IZfawg49QgnzRpUZctP9XevnVifoe4OnP/vS5dykELl/rOfj6GOJ5TSmDsIkUbd7jCOlV+9n1+Q==",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8001/warehouse/stock?productIds=10",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"warehouse",
+								"stock"
+							],
+							"query": [
+								{
+									"key": "productIds",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Sucess Get Data",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8001/warehouse/stock?productIds=1",
+									"host": [
+										"localhost"
+									],
+									"port": "8001",
+									"path": [
+										"warehouse",
+										"stock"
+									],
+									"query": [
+										{
+											"key": "productIds",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 22 Jul 2024 07:00:51 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "397"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": {\n        \"code\": \"000001\",\n        \"message\": \"Success Get Stock Warehouse\"\n    },\n    \"data\": [\n        {\n            \"id\": 0,\n            \"warehouse_id\": 1,\n            \"product_id\": 1,\n            \"quantity\": 99,\n            \"created_at\": \"2024-07-22T13:19:15.312028Z\",\n            \"updated_at\": \"2024-07-22T13:47:28.653367Z\",\n            \"is_deleted\": false\n        },\n        {\n            \"id\": 0,\n            \"warehouse_id\": 2,\n            \"product_id\": 1,\n            \"quantity\": 0,\n            \"created_at\": \"2024-07-22T13:20:44.655467Z\",\n            \"updated_at\": \"2024-07-22T13:47:28.653367Z\",\n            \"is_deleted\": false\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Post Stock",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "BVx1Cf61WcW57KW7sVRZcaFH0oIizqgUA2FKrU/3jT3fiPMTrKzC1H7ve5d9TCzzs+9pzxwCPGWzq19vI42lmuByUQQwQibO5Ee0pfgPPhkvCzeu59itnBQCvjwAFLTrd77TfyCRtV3zl0oYfhm5pPCtoyfllypqsRKTtX77/w7G5RFynXS7S0ri3xp0GVg9My56+NDI5pvhcbCGmftrFR8GIRygXL3oC71mszAjnMMH5syAN3d3dq4YhmCvianuK7ibFIYk08MxoHigAqrvR9xcdA==",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\":0,\n    \"warehouse_id\":2,\n    \"product_id\" :1,\n    \"quantity\" : 10,\n    \"is_deleted\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8001/warehouse/stock",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"warehouse",
+								"stock"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success Post Stock",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\":0,\n    \"warehouse_id\":1,\n    \"product_id\" :1,\n    \"quantity\" : 99,\n    \"is_deleted\": false\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8001/warehouse/stock",
+									"host": [
+										"localhost"
+									],
+									"port": "8001",
+									"path": [
+										"warehouse",
+										"stock"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 22 Jul 2024 06:19:15 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "82"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": {\n        \"code\": \"000004\",\n        \"message\": \"Success Insert or Update Stock Warehouse\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Post Stock Sync Warehouse",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "BVx1Cf61WcW57KW7sVRZcaFH0oIizqgUA2FKrU/3jT3fiPMTrKzC1H7ve5d9TCzzs+9pzxwCPGWzq19vI42lmuByUQQwQibO5Ee0pfgPPhkvCzeu59itnBQCvjwAFLTrd77TfyCRtV3zl0oYfhm5pPCtoyfllypqsRKTtX77/w7G5RFynXS7S0ri3xp0GVg9My56+NDI5pvhcbCGmftrFR8GIRygXL3oC71mszAjnMMH5syAN3d3dq4YhmCvianuK7ibFIYk08MxoHigAqrvR9xcdA==",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"quantity\":10,\n    \"product_id\" :1,\n    \"from_warhouse_id\" : 1,\n    \"to_warhouse_id\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8001/warehouse/stock/sync",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"warehouse",
+								"stock",
+								"sync"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success Post Stock",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\":0,\n    \"warehouse_id\":1,\n    \"product_id\" :1,\n    \"quantity\" : 99,\n    \"is_deleted\": false\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8001/warehouse/stock",
+									"host": [
+										"localhost"
+									],
+									"port": "8001",
+									"path": [
+										"warehouse",
+										"stock"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 22 Jul 2024 06:19:15 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "82"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": {\n        \"code\": \"000004\",\n        \"message\": \"Success Insert or Update Stock Warehouse\"\n    }\n}"
+						},
+						{
+							"name": "Error Post Stock not enough",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"quantity\":10,\n    \"product_id\" :1,\n    \"from_warhouse_id\" : 2,\n    \"to_warhouse_id\": 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8001/warehouse/stock/sync",
+									"host": [
+										"localhost"
+									],
+									"port": "8001",
+									"path": [
+										"warehouse",
+										"stock",
+										"sync"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 22 Jul 2024 06:47:42 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "115"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": {\n        \"code\": \"000003\",\n        \"message\": \"Failed Insert or Update Stock Warehouse\",\n        \"reason\": \"Stok Less Than Request\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Patch Stock Warehouse",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "BVx1Cf61WcW57KW7sVRZcaFH0oIizqgUA2FKrU/3jT3fiPMTrKzC1H7ve5d9TCzzs+9pzxwCPGWzq19vI42lmuByUQQwQibO5Ee0pfgPPhkvCzeu59itnBQCvjwAFLTrd77TfyCRtV3zl0oYfhm5pPCtoyfllypqsRKTtX77/w7G5RFynXS7S0ri3xp0GVg9My56+NDI5pvhcbCGmftrFR8GIRygXL3oC71mszAjnMMH5syAN3d3dq4YhmCvianuK7ibFIYk08MxoHigAqrvR9xcdA==",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"quantity\":25,\n    \"product_id\" :1,\n    \"warhouse_id\" : 1,\n    \"type\" : \"increase\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8001/warehouse/stock",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"warehouse",
+								"stock"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Succes Patch stock warehouse",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"quantity\":10,\n    \"product_id\" :1,\n    \"warhouse_id\" : 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8001/warehouse/stock",
+									"host": [
+										"localhost"
+									],
+									"port": "8001",
+									"path": [
+										"warehouse",
+										"stock"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 22 Jul 2024 07:02:34 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "72"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": {\n        \"code\": \"000002\",\n        \"message\": \"Success Update Stock Warehouse\"\n    }\n}"
+						},
+						{
+							"name": "Error Stock Sync Warehouse",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"quantity\":25,\n    \"product_id\" :1,\n    \"warhouse_id\" : 1,\n    \"type\" : \"decrease\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8001/warehouse/stock",
+									"host": [
+										"localhost"
+									],
+									"port": "8001",
+									"path": [
+										"warehouse",
+										"stock"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 22 Jul 2024 07:24:17 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "105"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": {\n        \"code\": \"000002\",\n        \"message\": \"Failed Update Stock Warehouse\",\n        \"reason\": \"Stok Less Than Request\"\n    }\n}"
+						},
+						{
+							"name": "Succes Increase Stock Sync Warehouse",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"quantity\":25,\n    \"product_id\" :1,\n    \"warhouse_id\" : 1,\n    \"type\" : \"increase\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8001/warehouse/stock",
+									"host": [
+										"localhost"
+									],
+									"port": "8001",
+									"path": [
+										"warehouse",
+										"stock"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 22 Jul 2024 07:25:21 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "72"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": {\n        \"code\": \"000002\",\n        \"message\": \"Success Update Stock Warehouse\"\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Warehouse",
+			"item": [
+				{
+					"name": "Post Warehouse",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "BVx1Cf61WcW57KW7sVRZcaFH0oIizqgUA2FKrU/3jT3fiPMTrKzC1H7ve5d9TCzzs+9pzxwCPGWzq19vI42lmuByUQQwQibO5Ee0pfgPPhkvCzeu59itnBQCvjwAFLTrd77TfyCRtV3zl0oYfhm5pPCtoyfllypqsRKTtX77/w7G5RFynXS7S0ri3xp0GVg9My56+NDI5pvhcbCGmftrFR8GIRygXL3oC71mszAjnMMH5syAN3d3dq4YhmCvianuK7ibFIYk08MxoHigAqrvR9xcdA==",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    id\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8001/warehouse",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"warehouse"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success Warehouse",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\":\"2\",\n    \"name\":\"Warehouse Cikarang\",\n    \"enabled\" :true,\n    \"address\" : \"jakarat,ciracas\",\n    \"area\" : \"Jakarta\",\n    \"is_deleted\": false,\n    \"shop_id\": 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8001/warehouse",
+									"host": [
+										"localhost"
+									],
+									"port": "8001",
+									"path": [
+										"warehouse"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 22 Jul 2024 05:31:06 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "82"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": {\n        \"code\": \"000005\",\n        \"message\": \"Success Insert or Update Stock Warehouse\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get All Warehouse",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "BVx1Cf61WcW57KW7sVRZcaFH0oIizqgUA2FKrU/3jT3fiPMTrKzC1H7ve5d9TCzzs+9pzxwCPGWzq19vI42lmuByUQQwQibO5Ee0pfgPPhkvCzeu59itnBQCvjwAFLTrd77TfyCRtV3zl0oYfhm5pPCtoyfllypqsRKTtX77/w7G5RFynXS7S0ri3xp0GVg9My56+NDI5pvhcbCGmftrFR8GIRygXL3oC71mszAjnMMH5syAN3d3dq4YhmCvianuK7ibFIYk08MxoHigAqrvR9xcdA==",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8001/warehouse",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"warehouse"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success Get All Warehouse",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8001/warehouse",
+									"host": [
+										"localhost"
+									],
+									"port": "8001",
+									"path": [
+										"warehouse"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 22 Jul 2024 05:49:46 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "491"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": {\n        \"code\": \"000006\",\n        \"message\": \"Success Get Warehouse\"\n    },\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"Warehouse Jakarta\",\n            \"enabled\": true,\n            \"address\": \"jakarat,ciracas\",\n            \"area\": \"Jakarta\",\n            \"created_at\": \"2024-07-22T12:31:06.14739Z\",\n            \"updated_at\": \"2024-07-22T12:31:06.14739Z\",\n            \"is_deleted\": false,\n            \"shop_id\": 1\n        },\n        {\n            \"id\": 2,\n            \"name\": \"Warehouse Cikarang\",\n            \"enabled\": true,\n            \"address\": \"cikarang\",\n            \"area\": \"Cikarang\",\n            \"created_at\": \"2024-07-22T12:33:07.615752Z\",\n            \"updated_at\": \"2024-07-22T12:33:07.615752Z\",\n            \"is_deleted\": false,\n            \"shop_id\": 1\n        }\n    ]\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}

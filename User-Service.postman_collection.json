@@ -1,0 +1,515 @@
+{
+	"info": {
+		"_postman_id": "01549bfd-72a2-4eb5-822f-def30acb39c9",
+		"name": "User-Service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12728962"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":\"test123@gmail.com\",\n    \"phoneNumber\":\"082123123123\",\n    \"first_name\":\"test\",\n    \"last_name\":\"123\",\n    \"nickname\":\"test123\",\n    \"description\":\"testt\",\n    \"gender\":\"man\",\n    \"password\":\"test123\",\n    \"photo\":\"test\",\n    \"birthDate\":\"1998-01-02\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/register",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success Register",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"test123@gmail.com\",\n    \"phoneNumber\":\"082123123123\",\n    \"first_name\":\"test\",\n    \"last_name\":\"123\",\n    \"nickname\":\"test123\",\n    \"description\":\"testt\",\n    \"gender\":\"man\",\n    \"password\":\"test123\",\n    \"photo\":\"test\",\n    \"birthDate\":\"1998-01-02T15:04:05Z07:00\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/register",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"register"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": ""
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 04 Jun 2024 09:56:23 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "391"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": {\n        \"code\": \"Succesfully Register User\",\n        \"message\": \"Success Register\"\n    },\n    \"data\": {\n        \"ID\": 1,\n        \"FirstName\": \"test\",\n        \"LastName\": \"123\",\n        \"Gender\": \"man\",\n        \"BirthDate\": \"0001-01-01T00:00:00Z\",\n        \"PhoneNumber\": \"082123123123\",\n        \"Nickname\": \"test123\",\n        \"Description\": \"testt\",\n        \"Photo\": \"test\",\n        \"UpdatedAT\": null,\n        \"CreatedAT\": null,\n        \"UserAccountID\": \"3471a78b-5488-4f77-821e-f40759da2309\",\n        \"IsDeleted\": false,\n        \"IsPremium\": false\n    }\n}"
+				},
+				{
+					"name": "Failed Account Already Registered",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"test123@gmail.com\",\n    \"phoneNumber\":\"082123123123\",\n    \"first_name\":\"test\",\n    \"last_name\":\"123\",\n    \"nickname\":\"test123\",\n    \"description\":\"testt\",\n    \"gender\":\"man\",\n    \"password\":\"test123\",\n    \"photo\":\"test\",\n    \"birthDate\":\"1998-01-02T15:04:05Z07:00\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/register",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"register"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": ""
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 04 Jun 2024 10:06:17 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "95"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": {\n        \"code\": \"000001\",\n        \"message\": \"Account already registered\",\n        \"reason\": \"Failed Register\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"input\":\"test123@gmail.com\",\n    \"password\":\"test123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/login",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success Login",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"input\":\"test123@gmail.com\",\n    \"password\":\"test123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/login",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": ""
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 04 Jun 2024 09:58:39 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "332"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": {\n        \"code\": \"Succesfully Login\",\n        \"message\": \"Success Login\"\n    },\n    \"data\": {\n        \"TokenID\": \"00000000-0000-0000-0000-000000000000\",\n        \"UserAccountID\": \"3471a78b-5488-4f77-821e-f40759da2309\",\n        \"AuthToken\": \"pocHqBRRCNTT-FkwwfEweVsn3Mzsw6W3TWZV6uWc36Q=\",\n        \"CreatedAt\": \"2024-06-04T16:58:39.975988+07:00\",\n        \"ExpiredAt\": \"2024-06-04T17:58:39.975988+07:00\"\n    }\n}"
+				},
+				{
+					"name": "Failed Login",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"input\":\"test123@gmail.com\",\n    \"password\":\"test1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/login",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": ""
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 04 Jun 2024 10:01:45 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "78"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": {\n        \"code\": \"000002\",\n        \"message\": \"Failed Login\",\n        \"reason\": \"Failed Login\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Validate Token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"token\":\"gC22nKxG2T6c1yU+pqtQduiU6tplUbGJFi4n96ozpAWylwUr3IBbSsEfiAY4ZY2a8iN5+Nk2ZSygctJcI2h+3jXTLHqbYkCwiCogEd1R/qY4u2B74v+qwKVDNKdiazsjurv8H4eEpCWVrUofZce2exZEsoIHoESxBp1GcNGCUVovHUN06m4wSPVtbQmLJxOtvsD6VDZmpw1kEyG5TzkIce5GIc1nRTEyIsl1U8UHTKsxq/EiNN4iMC8bkMXeK8BvX6k8yvW8Td2YPW2WgN2cuXDfrg==\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/validate-token",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"validate-token"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Failed Check Token",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"token\":\"gC22sad\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/validate-token",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"validate-token"
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": ""
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 20 Jul 2024 14:18:11 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "87"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": {\n        \"code\": \"000003\",\n        \"message\": \"Failed Check Token\",\n        \"reason\": \"Token Not Valid\"\n    }\n}"
+				},
+				{
+					"name": "Success Check Token",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"token\":\"gC22nKxG2T6c1yU+pqtQduiU6tplUbGJFi4n96ozpAWylwUr3IBbSsEfiAY4ZY2a8iN5+Nk2ZSygctJcI2h+3jXTLHqbYkCwiCogEd1R/qY4u2B74v+qwKVDNKdiazsjurv8H4eEpCWVrUofZce2exZEsoIHoESxBp1GcNGCUVovHUN06m4wSPVtbQmLJxOtvsD6VDZmpw1kEyG5TzkIce5GIc1nRTEyIsl1U8UHTKsxq/EiNN4iMC8bkMXeK8BvX6k8yvW8Td2YPW2WgN2cuXDfrg==\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/validate-token",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"validate-token"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": ""
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 20 Jul 2024 14:19:01 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "549"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": {\n        \"code\": \"000003\",\n        \"message\": \"Token Valid\"\n    },\n    \"data\": {\n        \"TokenID\": \"8f13d1d7-eb0d-42b3-9e63-ca21d6bbc5f0\",\n        \"UserAccountID\": \"dd8f1500-1e95-4076-bc30-a544fc5f17c1\",\n        \"AuthToken\": \"gC22nKxG2T6c1yU+pqtQduiU6tplUbGJFi4n96ozpAWylwUr3IBbSsEfiAY4ZY2a8iN5+Nk2ZSygctJcI2h+3jXTLHqbYkCwiCogEd1R/qY4u2B74v+qwKVDNKdiazsjurv8H4eEpCWVrUofZce2exZEsoIHoESxBp1GcNGCUVovHUN06m4wSPVtbQmLJxOtvsD6VDZmpw1kEyG5TzkIce5GIc1nRTEyIsl1U8UHTKsxq/EiNN4iMC8bkMXeK8BvX6k8yvW8Td2YPW2WgN2cuXDfrg==\",\n        \"CreatedAt\": \"2024-07-20T21:17:01.015341Z\",\n        \"ExpiredAt\": \"2024-07-20T22:17:01.015178Z\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Get User",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/user?userId=8e767d20-9de9-4c70-97cc-863d20d00cd9",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"user"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "8e767d20-9de9-4c70-97cc-863d20d00cd9"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get User",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/user?userId=8e767d20-9de9-4c70-97cc-863d20d00cd9",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"user"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "8e767d20-9de9-4c70-97cc-863d20d00cd9"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": ""
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 23 Jul 2024 07:42:00 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "445"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": {\n        \"code\": \"000004\",\n        \"message\": \"Success Get Customer\"\n    },\n    \"data\": {\n        \"ID\": 1,\n        \"FirstName\": \"test\",\n        \"LastName\": \"123\",\n        \"Gender\": \"man\",\n        \"BirthDate\": \"0001-01-01T00:00:00Z\",\n        \"PhoneNumber\": \"082123123123\",\n        \"Nickname\": \"test123\",\n        \"Description\": \"testt\",\n        \"Photo\": \"test\",\n        \"UpdatedAT\": \"2024-07-21T09:44:04.014934Z\",\n        \"CreatedAT\": \"2024-07-21T09:44:04.014934Z\",\n        \"UserAccountID\": \"8e767d20-9de9-4c70-97cc-863d20d00cd9\",\n        \"IsDeleted\": false,\n        \"IsPremium\": false,\n        \"IsVerified\": false\n    }\n}"
+				}
+			]
+		}
+	]
+}
